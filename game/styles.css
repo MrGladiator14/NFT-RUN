@@ -1,8 +1,7 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-  user-select: none;
+* {
+  margin: 0;
+  padding: 0;
 }
-
 body {
   margin: 0;
   display: flex;
@@ -16,62 +15,11 @@ body {
   position: relative;
 }
 
-button {
-  position: fixed;
-  margin-top: 1px;
-}
-
-.nftTotalScore {
-  position: absolute;
-  font-size: 3vmin;
-  right: 30vmin;
-  top: 4vmin;
-}
-
-.gweiTotalScore {
-  position: absolute;
-  font-size: 3vmin;
-  right: 30vmin;
-  top: 1vmin;
-}
-
 .score {
-  position: absolute;
-  font-size: 3vmin;
-  right: 1vmin;
-  top: 1vmin;
+  width: 100%;
+  margin: 0%;
+  padding: 0;
 }
-
-.button1 {
-  position: absolute;
-  font-size: 3vmin;
-  left: 1vmin;
-  top: 1vmin;
-}
-
-.button2 {
-  position: absolute;
-  font-size: 3vmin;
-  left: 1vmin;
-  top: 5vmin;
-}
-
-.button3 {
-  position: absolute;
-  font-size: 3vmin;
-  left: 1vmin;
-  top: 10vmin;
-}
-
-
-.score1 {
-  position: absolute;
-  font-size: 3vmin;
-  right: 1vmin;
-  top: 4vmin;
-}
-
-
 .start-screen {
   position: absolute;
   font-size: 5vmin;
@@ -87,9 +35,9 @@ button {
 .ground {
   --left: 0;
   position: absolute;
-  width: 300%;
-  bottom: 0;
-  left: calc(var(--left) * 1%)
+  width: 100%;
+  bottom: -15vw;
+  left: calc(var(--left) * 1%);
 }
 
 .player {
@@ -104,12 +52,12 @@ button {
   position: absolute;
   left: calc(var(--left) * 1%);
   height: 30%;
-  bottom: 0;
+  bottom: -1.1vw;
 }
 
 .nft {
   position: absolute;
   left: calc(var(--left) * 1%);
   height: 30%;
-  bottom: 100px;
+  bottom: 7vw;
 }

@@ -10,7 +10,7 @@ const SPEED_SCALE_INCREASE = 0.00001
 const gameElem = document.querySelector("[data-game]")
 const scoreElem = document.querySelector("[data-score]")
 const startScreenElem = document.querySelector("[data-start-screen]")
-const gweiTotalScoreEleme = document.querySelector("[data-wei-total-score]")
+const gweiTotalScoreEleme = document.querySelector("[data-gwei-total-score]")
 const nftTotalScoreElem = document.querySelector("[data-nft-total-score]")
 
 const nftScoreElem = document.querySelector("[data-nft-score ]")
@@ -39,7 +39,6 @@ function update(time) {
   updateSpeedScale(delta)
   updateScore(delta)
   checkIfWeGotNft()
-  // if there is a collision lose the game
   if (checkLose()) return handleLose()
   lastTime = time
   window.requestAnimationFrame(update)
@@ -55,17 +54,17 @@ function isCollision(rect1, rect2) {
     rect1.left < rect2.right &&
     rect1.top < rect2.bottom &&
     rect1.right > rect2.left &&
-    rect1.bottom > rect2.top 
+    rect1.bottom > rect2.top
   )
 }
 
 function checkIfWeGotNft() {
   const playerRect = getPlayerRect()
-  if(getNftRects().some(rect => isCollision(rect, playerRect))) {
+  if (getNftRects().some(rect => isCollision(rect, playerRect))) {
     const nftToRemove = document.querySelectorAll("[data-nft]")[0]
     nftToRemove.remove()
     nftScore += 1
-    nftScoreElem.textContent = `nft score: ${nftScore}`
+    nftScoreElem.textContent = `NFT score: ${nftScore}`
   }
   return getNftRects().some(rect => isCollision(rect, playerRect))
 }
@@ -75,13 +74,10 @@ function updateSpeedScale(delta) {
 }
 
 function updateScore(delta) {
-  // kolku score dobivas tuka se presmetue
-  // console.log("delta u update score function = ", delta)
   score += delta * 0.01
-  scoreElem.textContent = `Wei score: ${Math.floor(score)}` 
+  scoreElem.textContent = `GWEI score: ${Math.floor(score)}`
 }
 
-// kaa kje pozne
 function handleStart() {
   lastTime = null
   speedScale = 1
@@ -91,7 +87,6 @@ function handleStart() {
   setupObstacle()
   setupNft()
   startScreenElem.classList.add("hide")
-  // call this onnly wehne screen refershes
   window.requestAnimationFrame(update)
 }
 
@@ -100,16 +95,15 @@ window.totalNFTScore = 0
 window.totalGweiScore = 0
 
 function handleLose() {
-  window.totalGweiScore += Math.floor(score)  
+  window.totalGweiScore += Math.floor(score)
   window.totalNFTScore += nftScore
 
-  nftTotalScoreElem.textContent = `NFT total score: ${window.totalNFTScore}`
-  gweiTotalScoreEleme.textContent = `Wei total score ${window.totalGweiScore}`
+  nftTotalScoreElem.textContent = `NFT Total Score: ${window.totalNFTScore}`
+  gweiTotalScoreEleme.textContent = `GWEI Total Score ${window.totalGweiScore}`
 
   nftScore = 0
-  nftScoreElem.textContent = `nft score: ${nftScore}`
+  nftScoreElem.textContent = `NFT score: ${nftScore}`
   setPlayerLose()
-  // save
   setTimeout(() => {
     document.addEventListener("keydown", handleStart, { once: true })
     startScreenElem.classList.remove("hide")
