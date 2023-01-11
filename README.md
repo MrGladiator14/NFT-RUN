@@ -1,6 +1,8 @@
 # NFT RUN
 A classic game similar to Chrome Dino where you can claim game rewards in the form of NFTs &amp; Game Tokens.
 
+![Screenshot (417)](https://user-images.githubusercontent.com/93448605/211823453-bab0ee30-054e-4459-820c-ed47d0af5608.png)
+![Screenshot (418)](https://user-images.githubusercontent.com/93448605/211823508-75d9728c-d622-437e-95d6-520f05ee068e.png)
 
 ## Technology Stack & Dependencies
 
